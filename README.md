@@ -13,7 +13,7 @@ Target environments
 
 Cygwin, Linux, Mac OS X.
 
-isbnutil is shell script (sh), and so probably work fine on other Unix-like environment.
+isbnutil is shell script (sh), and so probably works fine on other Unix-like environment.
 
 Set up
 ------
