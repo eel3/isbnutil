@@ -30,8 +30,8 @@ IFS=$(printf ' \t\n_'); IFS=${IFS%_}
 PATH=/bin:/usr/bin
 export IFS LC_ALL=C LANG=C PATH
 
-readonly progname=${0##*/}
-readonly version=1.1.0.20190406
+readonly progname="${0##*/}"
+readonly version=1.1.1.20220710
 
 # isbn_cksum <ISBN_without_check_digit>
 isbn_cksum() {
@@ -116,7 +116,7 @@ usage() {
 		    test      Validate ISBN check digit (test(1) like)
 		    type      Check and print ISBN type (10, 13, none)
 	EOT
-    exit $1
+    exit "$1"
 }
 
 # version (no parameter)
@@ -135,10 +135,10 @@ while getopts 'hv' opt; do
     \?)     usage 1 ;;
     esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 [ $# -eq 2 ] || usage 1
-isbn=$(echo $2)
+isbn=$2
 
 case "$1" in
 cksum)      isbn_cksum "$isbn" ;;
